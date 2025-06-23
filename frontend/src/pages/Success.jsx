@@ -464,29 +464,30 @@ const Success = ({ form, sections, onRestart }) => {
 
     startY += lines.length * 18 + 20;
 
-const overallScore = totalScore.toFixed(2);
-const maturityLevel = getMaturityLevel(totalScore);
-const { r: rO, g: gO, b: bO } = hexToRgb(overallColor);
+    const overallScore = totalScore.toFixed(2);
+    const maturityLevel = getMaturityLevel(totalScore);
+    const { r: rO, g: gO, b: bO } = hexToRgb(overallColor);
 
-doc.setFillColor(rO, gO, bO);
-doc.setTextColor(255, 255, 255);
-doc.rect(40, startY, pageWidth - 80, 40, "F");
+    doc.setFillColor(rO, gO, bO);
+    doc.setTextColor(255, 255, 255);
+    doc.rect(40, startY, pageWidth - 80, 40, "F");
 
-doc.setFontSize(16);
-doc.setFont(undefined, "bold");
-doc.text(
-  `Overall Water Management Score: ${overallScore}`,
-  centerX,
-  startY + 18,
-  { align: "center" }
-);
-doc.setFontSize(14);
-doc.setFont(undefined, "normal");
-doc.text(`Maturity Level: ${maturityLevel}`, centerX, startY + 34, {
-  align: "center",
-});
+    doc.setFontSize(16);
+    doc.setFont(undefined, "bold");
+    doc.text(
+      `Overall Water Management Score: ${overallScore}`,
+      centerX,
+      startY + 18,
+      { align: "center" }
+    );
+    doc.setFontSize(14);
+    doc.setFont(undefined, "normal");
+    doc.text(`Maturity Level: ${maturityLevel}`, centerX, startY + 34, {
+      align: "center",
+    });
 
-startY += 30;
+    startY += 30;
+
 
 
     for (let i = 0; i < 3; i++) {
@@ -719,7 +720,7 @@ startY += 30;
         new File([blob], fileName, { type: "application/pdf" })
       );
       formData.append("email", form.email);
-      formData.append("cc_email", "abcd.gmail.com");
+      formData.append("cc_email", "contact@jalsmruti.org");
 
       const res = await fetch("https://backend-yol3.onrender.com/api/send-pdf-email", {
         method: "POST",
