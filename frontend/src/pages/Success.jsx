@@ -462,8 +462,8 @@ const Success = ({ form, sections, onRestart }) => {
       });
     });
 
-    startY += lines.length * 18 + 5;
-
+    startY += lines.length * 18 + 20;
+    
     const overallScore = totalScore.toFixed(2);
     const maturityLevel = getMaturityLevel(totalScore);
     const { r: rO, g: gO, b: bO } = hexToRgb(overallColor);
@@ -486,7 +486,7 @@ const Success = ({ form, sections, onRestart }) => {
       align: "center",
     });
 
-    startY += 20;
+    startY += 60;
 
 
 
