@@ -149,11 +149,11 @@ function App() {
 
       console.log("Sending form data:", formToSend);
 
-      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://backend-8cq5.onrender.com";
+      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://backend-yol3.onrender.com";
 
       const jsonData = JSON.stringify(formToSend, replacer);
 
-      const response = await fetch(`https://backend-8cq5.onrender.com/api/submit`, {
+      const response = await fetch(`https://backend-yol3.onrender.com/api/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
