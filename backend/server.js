@@ -12,7 +12,7 @@ const upload = multer();
 const port = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: ["https://frontend-hgu7.onrender.com"],
+  origin: ["https://frontend-mb8h.onrender.com"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "Accept"],
   credentials: true,
