@@ -462,7 +462,7 @@ const Success = ({ form, sections, onRestart }) => {
       });
     });
 
-    startY += lines.length * 18 + 20;
+    startY += lines.length * 18 + 5;
 
     const overallScore = totalScore.toFixed(2);
     const maturityLevel = getMaturityLevel(totalScore);
@@ -486,7 +486,7 @@ const Success = ({ form, sections, onRestart }) => {
       align: "center",
     });
 
-    startY += 30;
+    startY += 20;
 
 
 
