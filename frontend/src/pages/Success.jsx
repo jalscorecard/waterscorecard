@@ -482,7 +482,7 @@ const Success = ({ form, sections, onRestart }) => {
     doc.setFontSize(16);
     doc.setFont(undefined, "bold");
     doc.text(
-      `Overall Water Management Score: ${overallScore}%`,
+      `Overall Water Management Score: ${overallScore}`,
       centerX,
       startY + 18,
       { align: "center" }
@@ -509,7 +509,7 @@ const Success = ({ form, sections, onRestart }) => {
       doc.rect(40, startY, pageWidth - 80, 25, "F");
       doc.text(section.title, 50, startY + 17);
       doc.text(
-        `Average Score: ${sectionScore.toFixed(2)}%`,
+        `Average Score: ${sectionScore.toFixed(0)}`,
         pageWidth - 50,
         startY + 17,
         { align: "right" }
@@ -569,7 +569,7 @@ const Success = ({ form, sections, onRestart }) => {
       doc.rect(40, startY, pageWidth - 80, 25, "F");
       doc.text(section.title, 50, startY + 17);
       doc.text(
-        `Average Score: ${sectionScore.toFixed(2)}%`,
+        `Average Score: ${sectionScore.toFixed(0)}`,
           pageWidth - 50,
           startY + 17,
           { align: "right" }
@@ -586,9 +586,7 @@ const Success = ({ form, sections, onRestart }) => {
         return [
           q.label,
           answerText,
-          q.notApplicableValue && val === q.notApplicableValue
-          ? "-"
-           : Number(val).toFixed(2)
+          q.notApplicableValue && val === q.notApplicableValue ? "-" : val)
         ];
       });
 
@@ -797,7 +795,7 @@ const Success = ({ form, sections, onRestart }) => {
         }}
       >
         <Typography variant="h5" gutterBottom>
-          Overall Water Management Score: {totalScore.toFixed(2)}%
+          Overall Water Management Score: {totalScore.toFixed(0)}
         </Typography>
         <Typography variant="h6">Maturity Level: {maturity}</Typography>
       </Box>
@@ -824,7 +822,7 @@ const Success = ({ form, sections, onRestart }) => {
               }}
             >
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                {section.title} (Average Score: {sectionScore.toFixed(2)}%)
+                {section.title} (Average Score: {sectionScore.toFixed(0)})
               </Typography>
             </Box>
 
