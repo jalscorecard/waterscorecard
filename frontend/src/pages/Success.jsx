@@ -407,7 +407,7 @@ const Success = ({ form, sections, onRestart }) => {
 
     const bannerBase64 = await getImageBase64(bannerImage);
     if (bannerBase64) {
-      doc.addImage(bannerBase64, "PNG", 0, 0, pageWidth, 100);
+      doc.addImage(bannerBase64, "PNG", 0, 0, pageWidth, 90);
     }
     let startY = bannerBase64 ? 120 : 40;
 
