@@ -405,18 +405,21 @@ const Success = ({ form, sections, onRestart }) => {
     const pageHeight = doc.internal.pageSize.getHeight();
     const centerX = pageWidth / 2;
 
-    const bannerBase64 = await getImageBase64(bannerImage);
+    let bannerDisplayHeight = 0;
+
+      const bannerBase64 = await getImageBase64(bannerImage);
     if (bannerBase64) {
-const originalWidth = 855;
-const originalHeight = 214;
-const aspectRatio = originalHeight / originalWidth;
+    const originalWidth = 855;
+    const originalHeight = 214;
+    const aspectRatio = originalHeight / originalWidth;
 
-const bannerDisplayWidth = pageWidth; 
-const bannerDisplayHeight = pageWidth * aspectRatio; 
 
-doc.addImage(bannerBase64, "PNG", 0, 0, bannerDisplayWidth, bannerDisplayHeight);
+    const bannerDisplayWidth = pageWidth; 
+    bannerDisplayHeight = pageWidth * aspectRatio;
 
+    doc.addImage(bannerBase64, "PNG", 0, 0, bannerDisplayWidth, bannerDisplayHeight);
    }
+
 let startY = bannerDisplayHeight + 20;  
     const slogan =
       "Jalsmruti is empowering communities to restore India's cherished legacy — a land that was once celebrated as 'Sujalaam Sufalaam', abundant in water and lush vegetation.";
