@@ -240,7 +240,7 @@ function mapIndexToScore(index) {
 
 function getColorForScore(score) {
   if (score <= 49) return '#e74c3c';
-  if (score <= 64) return '#f39c12';
+  if (score <= 64) return '#FFD700';
   if (score <= 99) return '#27ae60'; 
   return '#3498db';                 
 }
@@ -584,9 +584,9 @@ const Success = ({ form, sections, onRestart }) => {
             ? "Not Applicable"
             : q.options?.[val] || val || "N/A";
         return [
-          q.label,
-          answerText,
-          q.notApplicableValue && val === q.notApplicableValue ? "-" : val)
+         q.label,
+         answerText,
+         q.notApplicableValue && val === q.notApplicableValue ? "-" : val
         ];
       });
 
