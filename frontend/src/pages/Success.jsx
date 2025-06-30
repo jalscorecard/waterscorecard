@@ -475,7 +475,7 @@ const Success = ({ form, sections, onRestart }) => {
     doc.setFontSize(16);
     doc.setFont(undefined, "bold");
     doc.text(
-      `Overall Water Management Score: ${overallScore}`,
+      `Overall Water Management Score: ${overallScore}%`,
       centerX,
       startY + 18,
       { align: "center" }
@@ -787,7 +787,7 @@ const Success = ({ form, sections, onRestart }) => {
         }}
       >
         <Typography variant="h5" gutterBottom>
-          Overall Water Management Score: {totalScore.toFixed(2)}
+          Overall Water Management Score: {totalScore.toFixed(2)}%
         </Typography>
         <Typography variant="h6">Maturity Level: {maturity}</Typography>
       </Box>
