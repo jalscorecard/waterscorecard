@@ -578,7 +578,7 @@ const Success = ({ form, sections, onRestart }) => {
         return [
           q.label,
           answerText,
-          q.notApplicableValue && val === q.notApplicableValue ? "-" : val,
+          q.notApplicableValue && val === q.notApplicableValue ? "-" : ((Number(val) / 3) * 100).toFixed(0) + "%"
         ];
       });
 
@@ -814,7 +814,7 @@ const Success = ({ form, sections, onRestart }) => {
               }}
             >
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                {section.title} (Average Score: {sectionScore.toFixed(2)})
+                {section.title} (Average Score: {sectionScore.toFixed(2)}%)
               </Typography>
             </Box>
 
