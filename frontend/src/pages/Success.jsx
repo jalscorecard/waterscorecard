@@ -407,10 +407,17 @@ const Success = ({ form, sections, onRestart }) => {
 
     const bannerBase64 = await getImageBase64(bannerImage);
     if (bannerBase64) {
-      doc.addImage(bannerBase64, "PNG", 0, 0, pageWidth, 90);
-    }
-    let startY = bannerBase64 ? 120 : 40;
+const originalWidth = 855;
+const originalHeight = 214;
+const aspectRatio = originalHeight / originalWidth;
 
+const bannerDisplayWidth = pageWidth; 
+const bannerDisplayHeight = pageWidth * aspectRatio; 
+
+doc.addImage(bannerBase64, "PNG", 0, 0, bannerDisplayWidth, bannerDisplayHeight);
+
+   }
+let startY = bannerDisplayHeight + 20;  
     const slogan =
       "Jalsmruti is empowering communities to restore India's cherished legacy — a land that was once celebrated as 'Sujalaam Sufalaam', abundant in water and lush vegetation.";
 
