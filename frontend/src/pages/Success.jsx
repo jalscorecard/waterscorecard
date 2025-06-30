@@ -520,7 +520,7 @@ const Success = ({ form, sections, onRestart }) => {
            answerText,
             q.notApplicableValue && val === q.notApplicableValue
             ? "-"
-           : ((Number(val) / 3) * 100).toFixed(0) + "%"
+           : val
         ];
       });
 
@@ -852,7 +852,7 @@ const Success = ({ form, sections, onRestart }) => {
                         <TableCell>
                             {q.notApplicableValue && val === q.notApplicableValue
                              ? "-"
-                             : ((Number(val) / 3) * 100).toFixed(0)}
+                             : val }
                         </TableCell>
 
                       </TableRow>
