@@ -517,8 +517,10 @@ const Success = ({ form, sections, onRestart }) => {
             : q.options?.[val] || val || "N/A";
         return [
           q.label,
-          answerText,
-          q.notApplicableValue && val === q.notApplicableValue ? "-" : val,
+           answerText,
+            q.notApplicableValue && val === q.notApplicableValue
+            ? "-"
+           ((Number(val) / 3) * 100).toFixed(0) + "%"
         ];
       });
 
@@ -848,10 +850,11 @@ const Success = ({ form, sections, onRestart }) => {
                         <TableCell>{q.label}</TableCell>
                         <TableCell>{answerText}</TableCell>
                         <TableCell>
-                          {q.notApplicableValue && val === q.notApplicableValue
-                            ? "-"
-                            : val}
+                            {q.notApplicableValue && val === q.notApplicableValue
+                             ? "-"
+                             : ((Number(val) / 3) * 100).toFixed(0)}
                         </TableCell>
+
                       </TableRow>
                     );
                   })}
