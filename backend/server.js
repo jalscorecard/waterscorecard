@@ -128,7 +128,7 @@ app.post(
       to: email,
       cc: cc_email || process.env.EMAIL_USER,
       subject: "Your Water Management Assessment Report",
-      text: "Hi,\n\nThank you for completing our assessment. Please find your report attached.\n\nRegards,\nTeam Jal Smruti",
+      text: "Dear Water Warriors,\n\nCongratulations for taking the first step of counting water to secure your community's water future.\n\nPlease see attached your Water Conservation Scorecard that outlines the areas where your community is doing well and where you have scope for improvement.\n\nWe encourage your community to set a goal of scoring green and becoming an Achiever. Our team can guide you on developing an action plan that helps you score green on all the parameters.\n\nRemember every litre of water saved is every litre of water earned that can be made available to people who are living in water stress.\n\nSincerely,\nTeam Jal Smruti",
       attachments: [
         {
           filename: pdf.originalname || "water_management_report.pdf",
