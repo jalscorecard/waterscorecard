@@ -124,7 +124,7 @@ app.post(
     }
 
     const mailOptions = {
-      from: `"Jal Smruti Foundation" <${process.env.EMAIL_USER}>`,
+      from: `"Water Assessment" <${process.env.EMAIL_USER}>`,
       to: email,
       cc: cc_email || process.env.EMAIL_USER,
       subject: "Your Water Management Assessment Report",
