@@ -405,7 +405,7 @@ const Success = ({ form, sections, onRestart }) => {
     let startY = bannerBase64 ? 120 : 40;
 
     const slogan =
-      "The driving force behind Jalsmruti is empowering communities to restore India's cherished legacy — a land that was once celebrated as 'Sujalaam Sufalaam', abundant in water and lush vegetation.";
+      "Jalsmruti is empowering communities to restore India's cherished legacy — a land that was once celebrated as 'Sujalaam Sufalaam', abundant in water and lush vegetation.";
 
     doc.setFontSize(14);
     doc.setFont("helvetica", "normal");
@@ -441,7 +441,7 @@ const Success = ({ form, sections, onRestart }) => {
 
       wordsInLine.forEach((word) => {
         if (word === "Jalsmruti") {
-          doc.setTextColor(0, 102, 204); // Blue
+          doc.setTextColor(0, 102, 204);
           doc.setFont(undefined, "bold");
         } else if (
           word.includes("Sujalaam") ||
@@ -449,7 +449,7 @@ const Success = ({ form, sections, onRestart }) => {
           word.includes("'Sujalaam") ||
           word.includes("Sufalaam',")
         ) {
-          doc.setTextColor(0, 153, 76); // Green
+          doc.setTextColor(0, 153, 76);
           doc.setFont("helvetica", "italic");
         } else {
           doc.setTextColor(0, 0, 0);
