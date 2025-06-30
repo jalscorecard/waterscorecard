@@ -502,7 +502,7 @@ const Success = ({ form, sections, onRestart }) => {
       doc.rect(40, startY, pageWidth - 80, 25, "F");
       doc.text(section.title, 50, startY + 17);
       doc.text(
-        `Average Score: ${sectionScore.toFixed(2)}`,
+        `Average Score: ${sectionScore.toFixed(2)}%`,
         pageWidth - 50,
         startY + 17,
         { align: "right" }
@@ -562,11 +562,12 @@ const Success = ({ form, sections, onRestart }) => {
       doc.rect(40, startY, pageWidth - 80, 25, "F");
       doc.text(section.title, 50, startY + 17);
       doc.text(
-        `Average Score: ${sectionScore.toFixed(2)}`,
-        pageWidth - 50,
-        startY + 17,
-        { align: "right" }
-      );
+        `Average Score: ${sectionScore.toFixed(2)}%`,
+          pageWidth - 50,
+          startY + 17,
+          { align: "right" }
+        );
+
       startY += 25;
 
       const tableRows = section.questions.map((q) => {
@@ -578,7 +579,9 @@ const Success = ({ form, sections, onRestart }) => {
         return [
           q.label,
           answerText,
-          q.notApplicableValue && val === q.notApplicableValue ? "-" : ((Number(val) / 3) * 100).toFixed(0) + "%"
+          q.notApplicableValue && val === q.notApplicableValue
+          ? "-"
+           : Number(val).toFixed(2)
         ];
       });
 
