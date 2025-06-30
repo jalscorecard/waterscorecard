@@ -233,6 +233,11 @@ const sections = [
 ];
 
 // Helper functions
+function mapIndexToScore(index) {
+  return (Number(index) + 1) * 25;
+}
+
+
 function getColorForScore(score) {
   if (score <= 49) return '#e74c3c';
   if (score <= 64) return '#f39c12';
@@ -243,37 +248,39 @@ function getColorForScore(score) {
 
 function calculateSectionScore(section, form) {
   let total = 0, count = 0;
+
   section.questions.forEach((q) => {
     const val = form[q.key];
     if (!(q.notApplicableValue && val === q.notApplicableValue)) {
       const numVal = Number(val);
-      if (!isNaN(numVal)) {
-        total += numVal;
+      if (!isNaN(numVal) && numVal >= 0 && numVal <= 3) {
+        total += mapIndexToScore(numVal);
         count++;
       }
     }
   });
-  const average = count ? total / count : 0;
-  return (average / 3) * 100;
+
+  return count ? Math.round(total / count) : 0;
 }
 
 
 function calculateTotalScore(form) {
   let total = 0, count = 0;
+
   sections.forEach((section) => {
     section.questions.forEach((q) => {
       const val = form[q.key];
       if (!(q.notApplicableValue && val === q.notApplicableValue)) {
         const numVal = Number(val);
-        if (!isNaN(numVal)) {
-          total += numVal;
+        if (!isNaN(numVal) && numVal >= 0 && numVal <= 3) {
+          total += mapIndexToScore(numVal);
           count++;
         }
       }
     });
   });
-  const average = count ? total / count : 0;
-  return (average / 3) * 100;
+
+  return count ? Math.round(total / count) : 0;
 }
 
 
