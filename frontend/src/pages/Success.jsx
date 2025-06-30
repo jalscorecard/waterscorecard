@@ -234,20 +234,15 @@ const sections = [
 
 // Helper functions
 function getColorForScore(score) {
-  if (score <= 1) {
-    return interpolateColor("#e74c3c", "#f39c12", score);
-  } else if (score <= 2) {
-    return interpolateColor("#f39c12", "#f1c40f", score - 1);
-  } else if (score <= 3) {
-    return interpolateColor("#f1c40f", "#27ae60", score - 2);
-  } else {
-    return "#27ae60";
-  }
+  if (score <= 49) return '#e74c3c';
+  if (score <= 64) return '#f39c12';
+  if (score <= 99) return '#27ae60'; 
+  return '#3498db';                 
 }
 
+
 function calculateSectionScore(section, form) {
-  let total = 0,
-    count = 0;
+  let total = 0, count = 0;
   section.questions.forEach((q) => {
     const val = form[q.key];
     if (!(q.notApplicableValue && val === q.notApplicableValue)) {
@@ -258,12 +253,13 @@ function calculateSectionScore(section, form) {
       }
     }
   });
-  return count ? total / count : 0;
+  const average = count ? total / count : 0;
+  return (average / 3) * 100;
 }
 
+
 function calculateTotalScore(form) {
-  let total = 0,
-    count = 0;
+  let total = 0, count = 0;
   sections.forEach((section) => {
     section.questions.forEach((q) => {
       const val = form[q.key];
@@ -276,8 +272,10 @@ function calculateTotalScore(form) {
       }
     });
   });
-  return count ? total / count : 0;
+  const average = count ? total / count : 0;
+  return (average / 3) * 100;
 }
+
 
 function interpolateColor(color1, color2, factor) {
   var hex = function (x) {
@@ -310,10 +308,12 @@ function hexToRgb(hex) {
 }
 
 function getMaturityLevel(score) {
-  if (score < 1) return "Front Runner";
-  else if (score < 2) return "Performer";
-  else return "Achiever";
+  if (score < 50) return "Aspirant";
+  else if (score < 65) return "Performer";
+  else if (score < 100) return "Front Runner";
+  return "Achiever";
 }
+
 
 const Success = ({ form, sections, onRestart }) => {
   const pdfRef = useRef(null);
